@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calmetavin Store - Premium Men's Boxers in Malawi. Shop Calvin Klein, Versace, and Checks Cotton Boxers at MWK 25,000 each.">
+    <meta name="keywords" content="men's boxers, Calvin Klein, Versace, cotton boxers, Malawi, underwear, premium boxers">
+    <title>Calmetavin Store - Premium Men's Boxers | MWK 25,000</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👔</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">👔</span>
+                Calmetavin Store
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="order.html">Order</a></li>
+            </ul>
+            <!-- Admin: Access via admin.html directly -->
+            <div class="cart-icon" onclick="window.location.href='order.html'">
+                <span>🛒</span>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Premium Men's Boxers</h1>
+            <p>Discover comfort and style with our exclusive collection of Calvin Klein, Versace, and Checks Cotton Boxers</p>
+            <div class="hero-price">Only MWK 25,000 each</div>
+            <a href="products.html" class="cta-button">Shop Now</a>
+        </div>
+        <div class="hero-image">
+            <img src="hero-boxers.jpg" alt="Premium Boxers Collection">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>Why Choose Us</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <h3>Authentic Brands</h3>
+                    <p>Genuine Calvin Klein and Versace products</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Fast Delivery</h3>
+                    <p>Quick delivery across Malawi</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💯</div>
+                    <h3>Quality Guaranteed</h3>
+                    <p>Premium cotton materials</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Payment</h3>
+                    <p>Safe and reliable transactions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Preview -->
+    <section class="featured-products">
+        <div class="container">
+            <h2>Our Collection</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="image1.jpg" alt="Calvin Klein Boxers" onerror="this.src='https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400'">
+                        <div class="product-overlay">
+                            <button class="quick-view" onclick="viewProduct('calvin')">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Calvin Klein Boxers</h3>
+                        <p class="product-desc">Classic comfort with iconic style</p>
+                        <p class="price">MWK 25,000</p>
+                        <button class="add-to-cart" onclick="addToCart('Calvin Klein Boxers', 25000)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="image3.jpg" alt="Versace Boxers" onerror="this.src='https://images.unsplash.com/photo-1584370848010-d7cc637733f2?w=400'">
+                        <div class="product-overlay">
+                            <button class="quick-view" onclick="viewProduct('versace')">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Versace Boxers</h3>
+                        <p class="product-desc">Luxury Italian design</p>
+                        <p class="price">MWK 25,000</p>
+                        <button class="add-to-cart" onclick="addToCart('Versace Boxers', 25000)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="image2.jpg" alt="Checks Cotton Boxers" onerror="this.src='https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?w=400'">
+                        <div class="product-overlay">
+                            <button class="quick-view" onclick="viewProduct('checks')">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Checks Cotton Boxers</h3>
+                        <p class="product-desc">Breathable cotton comfort</p>
+                        <p class="price">MWK 25,000</p>
+                        <button class="add-to-cart" onclick="addToCart('Checks Cotton Boxers', 25000)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all">
+                <a href="products.html" class="cta-button secondary">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <p>Call or WhatsApp</p>
+                    <a href="tel:+265XXXXXXXX">+265 XXX XXX XXX</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <p>Email Us</p>
+                    <a href="mailto:info@calmetavinstores.com">info@calmetavinstores.com</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <p>Visit Us</p>
+                    <span>Lilongwe, Malawi</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Calmetavin Store</h3>
+                    <p>Your trusted destination for premium men's boxers in Malawi.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="order.html">Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 +265 XXX XXX XXX</p>
+                    <p>📧 info@calmetavinstores.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Calmetavin Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/265XXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener">
+        <span class="whatsapp-tooltip">Chat with us on WhatsApp</span>
+        💬
+    </a>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop premium men's boxers - Calvin Klein, Versace, and Checks Cotton at MWK 25,000 each.">
+    <title>Products - Calmetavin Store</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👔</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">👔</span>
+                Calmetavin Store
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="order.html">Order</a></li>
+            </ul>
+            <!-- Admin: Access via admin.html directly -->
+            <div class="cart-icon" onclick="window.location.href='order.html'">
+                <span>🛒</span>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Products Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Products</h1>
+            <p>Premium men's boxers at affordable prices</p>
+        </div>
+    </section>
+
+    <!-- Products Filter -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-bar">
+                <span class="results-count">Showing all 3 products</span>
+                <div class="sort-options">
+                    <label>Sort by:</label>
+                    <select id="sortSelect" onchange="sortProducts()">
+                        <option value="default">Default</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-page">
+        <div class="container">
+            <div class="products-grid" id="productsGrid">
+                <!-- Calvin Klein -->
+                <div class="product-card" data-name="Calvin Klein Boxers" data-price="25000">
+                    <div class="product-badge">Best Seller</div>
+                    <div class="product-image">
+                        <img src="image1.jpg" alt="Calvin Klein Boxers" onerror="this.src='https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400'">
+                        <div class="product-overlay">
+                            <button class="quick-view" onclick="openModal('calvin')">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Calvin Klein Boxers</h3>
+                        <p class="product-desc">Classic comfort with iconic style. Premium cotton blend for all-day comfort.</p>
+                        <div class="product-features">
+                            <span>✓ 100% Cotton</span>
+                            <span>✓ Elastic Waistband</span>
+                            <span>✓ Breathable</span>
+                        </div>
+                        <p class="price">MWK 25,000</p>
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button onclick="adjustQty('calvin-qty', -1)">-</button>
+                                <input type="number" id="calvin-qty" value="1" min="1">
+                                <button onclick="adjustQty('calvin-qty', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" onclick="addToCartWithQty('Calvin Klein Boxers', 25000, 'calvin-qty')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Versace -->
+                <div class="product-card" data-name="Versace Boxers" data-price="25000">
+                    <div class="product-badge premium">Premium</div>
+                    <div class="product-image">
+                        <img src="image3.jpg" alt="Versace Boxers" onerror="this.src='https://images.unsplash.com/photo-1584370848010-d7cc637733f2?w=400'">
+                        <div class="product-overlay">
+                            <button class="quick-view" onclick="openModal('versace')">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Versace Boxers</h3>
+                        <p class="product-desc">Luxury Italian design. Elevate your everyday essentials with Versace.</p>
+                        <div class="product-features">
+                            <span>✓ Premium Quality</span>
+                            <span>✓ Designer Brand</span>
+                            <span>✓ Stylish Pattern</span>
+                        </div>
+                        <p class="price">MWK 25,000</p>
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button onclick="adjustQty('versace-qty', -1)">-</button>
+                                <input type="number" id="versace-qty" value="1" min="1">
+                                <button onclick="adjustQty('versace-qty', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" onclick="addToCartWithQty('Versace Boxers', 25000, 'versace-qty')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Checks Cotton -->
+                <div class="product-card" data-name="Checks Cotton Boxers" data-price="25000">
+                    <div class="product-image">
+                        <img src="image2.jpg" alt="Checks Cotton Boxers" onerror="this.src='https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?w=400'">
+                        <div class="product-overlay">
+                            <button class="quick-view" onclick="openModal('checks')">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Checks Cotton Boxers</h3>
+                        <p class="product-desc">Classic checkered pattern with breathable cotton comfort.</p>
+                        <div class="product-features">
+                            <span>✓ Soft Cotton</span>
+                            <span>✓ Classic Design</span>
+                            <span>✓ Durable</span>
+                        </div>
+                        <p class="price">MWK 25,000</p>
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button onclick="adjustQty('checks-qty', -1)">-</button>
+                                <input type="number" id="checks-qty" value="1" min="1">
+                                <button onclick="adjustQty('checks-qty', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" onclick="addToCartWithQty('Checks Cotton Boxers', 25000, 'checks-qty')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImg" src="" alt="">
+                </div>
+                <div class="modal-details">
+                    <h2 id="modalTitle"></h2>
+                    <p class="modal-price" id="modalPrice"></p>
+                    <p class="modal-desc" id="modalDesc"></p>
+                    <div class="modal-features" id="modalFeatures"></div>
+                    <div class="modal-actions">
+                        <div class="quantity-selector">
+                            <button onclick="adjustQty('modal-qty', -1)">-</button>
+                            <input type="number" id="modal-qty" value="1" min="1">
+                            <button onclick="adjustQty('modal-qty', 1)">+</button>
+                        </div>
+                        <button class="add-to-cart large" id="modalAddToCart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Calmetavin Store</h3>
+                    <p>Your trusted destination for premium men's boxers in Malawi.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="order.html">Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 +265 XXX XXX XXX</p>
+                    <p>📧 info@calmetavinstores.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Calmetavin Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/265XXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener">
+        <span class="whatsapp-tooltip">Chat with us on WhatsApp</span>
+        💬
+    </a>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Place your order for premium men's boxers at Calmetavin Store.">
+    <title>Place Order - Calmetavin Store</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👔</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">👔</span>
+                Calmetavin Store
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="order.html" class="active">Order</a></li>
+            </ul>
+            <!-- Admin: Access via admin.html directly -->
+            <div class="cart-icon" onclick="window.location.href='order.html'">
+                <span>🛒</span>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Your Order</h1>
+            <p>Review your cart and complete your purchase</p>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section class="order-section">
+        <div class="container">
+            <div class="order-grid">
+                <!-- Cart Summary -->
+                <div class="cart-section">
+                    <h2>Shopping Cart</h2>
+                    <div id="cartItems" class="cart-items">
+                        <!-- Cart items will be loaded here -->
+                    </div>
+                    <div class="cart-summary" id="cartSummary">
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">MWK 0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Delivery:</span>
+                            <span id="delivery">MWK 2,000</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total:</span>
+                            <span id="total">MWK 0</span>
+                        </div>
+                    </div>
+                    <button class="clear-cart" onclick="clearCart()">Clear Cart</button>
+                </div>
+
+                <!-- Order Form -->
+                <div class="order-form-section">
+                    <h2>Delivery Details</h2>
+                    <form id="orderForm" onsubmit="submitOrder(event)">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+265 XX XXX XXXX">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email (Optional)</label>
+                                <input type="email" id="email" name="email" placeholder="your@email.com">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Delivery Address *</label>
+                            <textarea id="address" name="address" rows="3" required placeholder="Enter your full address including area and city"></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                <select id="city" name="city" required>
+                                    <option value="">Select City</option>
+                                    <option value="Lilongwe">Lilongwe</option>
+                                    <option value="Blantyre">Blantyre</option>
+                                    <option value="Mzuzu">Mzuzu</option>
+                                    <option value="Zomba">Zomba</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="paymentMethod">Payment Method *</label>
+                                <select id="paymentMethod" name="paymentMethod" required>
+                                    <option value="">Select Payment</option>
+                                    <option value="Airtel Money">Airtel Money</option>
+                                    <option value="TNM Mpamba">TNM Mpamba</option>
+                                    <option value="Bank Transfer">Bank Transfer</option>
+                                    <option value="Cash on Delivery">Cash on Delivery</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notes">Order Notes (Optional)</label>
+                            <textarea id="notes" name="notes" rows="2" placeholder="Any special instructions..."></textarea>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="whatsappUpdates" checked>
+                                <span class="checkmark"></span>
+                                Send me order updates via WhatsApp
+                            </label>
+                        </div>
+
+                        <button type="submit" class="submit-order" id="submitOrderBtn">
+                            Place Order
+                            <span class="btn-total" id="btnTotal">MWK 0</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content success">
+            <div class="success-icon">✓</div>
+            <h2>Order Placed Successfully!</h2>
+            <p>Thank you for your order. We will contact you shortly to confirm.</p>
+            <div class="order-details" id="orderDetails"></div>
+            <button class="cta-button" onclick="closeSuccessModal()">Continue Shopping</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Calmetavin Store</h3>
+                    <p>Your trusted destination for premium men's boxers in Malawi.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="order.html">Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 +265 XXX XXX XXX</p>
+                    <p>📧 info@calmetavinstores.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Calmetavin Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/265XXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener">
+        <span class="whatsapp-tooltip">Chat with us on WhatsApp</span>
+        💬
+    </a>
+</body>
+</html>
