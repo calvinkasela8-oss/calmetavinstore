@@ -34,6 +34,12 @@ const ADMIN_CREDENTIALS = {
     password: 'calvin@265'
 };
 
+// Store contact details
+const STORE_CONTACT = {
+    phone: '+265997526965',
+    email: 'calmetavinstore@gmail.com'
+};
+
 // ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', function() {
     initCart();
@@ -218,15 +224,14 @@ function submitOrder(event) {
             name: document.getElementById('fullName').value,
             phone: document.getElementById('phone').value,
             email: document.getElementById('email').value,
-            address: document.getElementById('address').value,
             city: document.getElementById('city').value
         },
         paymentMethod: document.getElementById('paymentMethod').value,
         notes: document.getElementById('notes').value,
         items: cart,
         subtotal: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
-        delivery: 2000,
-        total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0) + 2000,
+        delivery: 0,
+        total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0) + 0,
         status: 'pending',
         whatsappUpdates: document.getElementById('whatsappUpdates').checked
     };
