@@ -21,8 +21,8 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="products.html">Products</a></li>
                 <li><a href="order.html" class="active">Order</a></li>
+                <li><a href="admin.html">Admin</a></li>
             </ul>
-            <!-- Admin: Access via admin.html directly -->
             <div class="cart-icon" onclick="window.location.href='order.html'">
                 <span>🛒</span>
                 <span class="cart-count" id="cartCount">0</span>
@@ -108,15 +108,26 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="paymentMethod">Payment Method *</label>
-                                <select id="paymentMethod" name="paymentMethod" required>
-                                    <option value="">Select Payment</option>
-                                    <option value="Airtel Money">Airtel Money</option>
-                                    <option value="TNM Mpamba">TNM Mpamba</option>
-                                    <option value="Bank Transfer">Bank Transfer</option>
-                                    <option value="Cash on Delivery">Cash on Delivery</option>
+                                <label for="deliveryMode">Delivery Mode *</label>
+                                <select id="deliveryMode" name="deliveryMode" required>
+                                    <option value="">Select Delivery Mode</option>
+                                    <option value="CTS">CTS</option>
+                                    <option value="Speed">Speed</option>
+                                    <option value="Post Office">Post Office</option>
+                                    <option value="Public Transport (Bus)">Public Transport (Bus)</option>
                                 </select>
                             </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="paymentMethod">Payment Method *</label>
+                            <select id="paymentMethod" name="paymentMethod" required>
+                                <option value="">Select Payment</option>
+                                <option value="Airtel Money">Airtel Money</option>
+                                <option value="TNM Mpamba">TNM Mpamba</option>
+                                <option value="Bank Transfer">Bank Transfer</option>
+                                <option value="Cash on Delivery">Cash on Delivery</option>
+                            </select>
                         </div>
 
                         <div class="form-group">

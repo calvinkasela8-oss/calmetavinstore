@@ -224,8 +224,10 @@ function submitOrder(event) {
             name: document.getElementById('fullName').value,
             phone: document.getElementById('phone').value,
             email: document.getElementById('email').value,
+            address: document.getElementById('address').value,
             city: document.getElementById('city').value
         },
+        deliveryMode: document.getElementById('deliveryMode').value,
         paymentMethod: document.getElementById('paymentMethod').value,
         notes: document.getElementById('notes').value,
         items: cart,
@@ -652,8 +654,12 @@ function viewOrderDetail(orderId) {
         <p><strong>Name:</strong> ${order.customer.name}</p>
         <p><strong>Phone:</strong> ${order.customer.phone}</p>
         <p><strong>Email:</strong> ${order.customer.email || '-'}</p>
-        <p><strong>Address:</strong> ${order.customer.address}</p>
+        <p><strong>Address:</strong> ${order.customer.address || '-'}</p>
         <p><strong>City:</strong> ${order.customer.city}</p>
+        <hr style="margin: 20px 0;">
+        <h4>Delivery & Payment</h4>
+        <p><strong>Delivery Mode:</strong> ${order.deliveryMode || 'Not specified'}</p>
+        <p><strong>Payment Method:</strong> ${order.paymentMethod}</p>
         <hr style="margin: 20px 0;">
         <h4>Order Items</h4>
         ${itemsHtml}
@@ -661,7 +667,6 @@ function viewOrderDetail(orderId) {
         <p><strong>Subtotal:</strong> MWK ${order.subtotal.toLocaleString()}</p>
         <p><strong>Delivery:</strong> MWK ${order.delivery.toLocaleString()}</p>
         <p><strong>Total:</strong> MWK ${order.total.toLocaleString()}</p>
-        <p><strong>Payment Method:</strong> ${order.paymentMethod}</p>
         ${order.notes ? `<p><strong>Notes:</strong> ${order.notes}</p>` : ''}
     `;
 
@@ -750,11 +755,11 @@ function exportOrders() {
         return;
     }
 
-    let csv = 'Order ID,Date,Customer,Phone,City,Items,Total,Status,Payment Method\\n';
+    let csv = 'Order ID,Date,Customer,Phone,City,Delivery Mode,Items,Total,Status,Payment Method\\n';
 
     orders.forEach(order => {
         const itemCount = order.items.reduce((sum, item) => sum + item.quantity, 0);
-        csv += `${order.id},${new Date(order.date).toLocaleDateString()},${order.customer.name},${order.customer.phone},${order.customer.city},${itemCount},${order.total},${order.status},${order.paymentMethod}\\n`;
+        csv += `${order.id},${new Date(order.date).toLocaleDateString()},${order.customer.name},${order.customer.phone},${order.customer.city},${order.deliveryMode || 'Not specified'},${itemCount},${order.total},${order.status},${order.paymentMethod}\\n`;
     });
 
     const blob = new Blob([csv], { type: 'text/csv' });
